@@ -1,4 +1,24 @@
-*.doc
-*.pptx
+build/
+.texpadtmp/
+*.pdf
+*.pyg
+.c9/
 
-TODO.md
+
+token.js
+*.log
+*.aux
+*.vrb
+*.out
+*.nav
+*.pdf
+*.toc
+*.snm
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+.DS_Store
+_site/
+.sass-cache/
+html/
+.jekyll-metadata
