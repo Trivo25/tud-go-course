@@ -1,0 +1,26 @@
+[
+  {
+    "date": "18.10.2021",
+    "day": "Monday",
+    "slots": [
+      {
+        "start": "9000",
+        "end": "1000",
+        "status": "blocked",
+        "note": "Morning Coffee"
+      },
+      {
+        "start": "1030",
+        "end": "1230",
+        "status": "blocked",
+        "note": "Meeting"
+      },
+      {
+        "start": "1400",
+        "end": "1600",
+        "status": "blocked",
+        "note": "Afternoon nap"
+      }
+    ]
+  }
+]
