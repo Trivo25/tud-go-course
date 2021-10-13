@@ -1,14 +1,25 @@
 %% Nothing to modify here.
 %% make sure to include this before anything else
-
+\usepackage[sfdefault]{FiraSans} %% option 'sfdefault' activates Fira Sans as the default text font
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
 \documentclass[10pt,aspectratio=169]{beamer}
 \usetheme{metropolis}
 \usenavigationsymbolstemplate{}
 \usepackage{tgcursor}
+\usepackage{appendixnumberbeamer}
+\usepackage{xcolor}
+\usepackage[scale=2]{ccicons}
 
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 % packages
 \usepackage{color}
 \usepackage{listings}
+\usepackage{multicol}
 
 % color definitions
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -18,36 +29,36 @@
 % re-format the title frame page
 \makeatletter
 \def\supertitle#1{\gdef\@supertitle{#1}}%
-%\setbeamertemplate{title page}
-%{
-%  \vbox{}
-%  \vfill
-%  \begin{centering}
-%  \begin{beamercolorbox}[sep=8pt,center]{title}
-%      \usebeamerfont{supertitle}\@supertitle
-%   \end{beamercolorbox}
-%    \begin{beamercolorbox}[sep=8pt,center]{title}
-%      \usebeamerfont{title}\inserttitle\par%
-%      \ifx\insertsubtitle\@empty%
-%      \else%
-%        \vskip0.25em%
-%        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-%      \fi%
-%    \end{beamercolorbox}%
-%    \vskip1em\par
-%    \begin{beamercolorbox}[sep=8pt,center]{author}
-%      \usebeamerfont{author}\insertauthor
-%    \end{beamercolorbox}
-%    \begin{beamercolorbox}[sep=8pt,center]{institute}
-%      \usebeamerfont{institute}\insertinstitute
-%    \end{beamercolorbox}
-%    \begin{beamercolorbox}[sep=8pt,center]{date}
-%      \usebeamerfont{date}\insertdate
-%    \end{beamercolorbox}\vskip0.5em
-%    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-%  \end{centering}
-%  \vfill
-%}
+% \setbeamertemplate{title page}
+% {
+%     \vbox{}
+%     \vfill
+%     \begin{centering}
+%         \begin{beamercolorbox}[sep=8pt,center]{title}
+%             \usebeamerfont{supertitle}\@supertitle
+%         \end{beamercolorbox}
+%         \begin{beamercolorbox}[sep=8pt,center]{title}
+%             \usebeamerfont{title}\inserttitle\par%
+%             \ifx\insertsubtitle\@empty%
+%             \else%
+%                 \vskip0.25em%
+%                 {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+%             \fi%
+%         \end{beamercolorbox}%
+%         \vskip1em\par
+%         \begin{beamercolorbox}[sep=8pt,center]{author}
+%             \usebeamerfont{author}\insertauthor
+%         \end{beamercolorbox}
+%         \begin{beamercolorbox}[sep=8pt,center]{institute}
+%             \usebeamerfont{institute}\insertinstitute
+%         \end{beamercolorbox}
+%         \begin{beamercolorbox}[sep=8pt,center]{date}
+%             \usebeamerfont{date}\insertdate
+%         \end{beamercolorbox}\vskip0.5em
+%         {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+%     \end{centering}
+%     \vfill
+% }
 \makeatother
 
 % insert frame number

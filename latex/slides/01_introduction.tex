@@ -1,6 +1,7 @@
 \input{course_definitions}	% nothing to do here
 \input{course_information} % TODO modify this if you have not already done so
 
+
 % meta-information
 \usepackage{tikz}
 \usepackage{hyperref}
@@ -10,308 +11,63 @@
 	urlcolor=blue,
 }
 
-\newcommand{\topic}{
-  Go
-}
-
-% nothing to do here
-\title{\topic}
-\supertitle{\course}
-\date{}
-
-% the actual document
 \begin{document}
 
 \maketitle
 
-\begin{frame}{Contents}
-	\tableofcontents
+\begin{frame}{Übersicht}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\tableofcontents%[hideallsubsections]
 \end{frame}
 
-\section{Setup2}
+
+% ################# ORGANISATION #################
+
+\section{Organisation}
+\subsection{Kontaktmöglichkeiten}
+
+\begin{frame}{Bei Fragen oder Problemen}
+	\begin{center}
+		Florian.Kluge@mailbox.tu-dresden.de
+	\end{center}
+\end{frame}
+
+
+\subsection{Ablauf}
+\subsection{Ziel}
+
+
+% ################# Wieso Go? #################
+
+\section{Wieso Go?}
+
+
+
+\begin{frame}{Bei Fragen oder Problemen}
+	\lstinputlisting[language=go]{code_samples/01_hello_world.go}
+\end{frame}
+
+
+\subsection{Was eigentlich ist}
+\subsection{Anwendungen und Beispiele}
+
+
+
+% ################# nützliche Links #################
+
+\section{nützliche Link}
+
+
 \subsection{}
 
-\begin{frame}{Getting started}
-	The slides are at \href{https://fsr.github.io/c-lessons/materials.html}{fsr.github.io/c-lessons/materials.html}\\
-	\bigskip
-	There will be tasks! You can find them at \href{http://fsr.github.io/c-lessons/}{fsr.github.io/c-lessons}\\
-	\bigskip
-	If you have questions, use the auditorium group: \href{https://auditorium.inf.tu-dresden.de/de/groups/110804109}{https://auditorium.inf.tu-dresden.de/de/groups/110804109}\\
-	\bigskip
-	In case of big trouble, write an e-mail to your tutor.\\
-\end{frame}
 
-\begin{frame}{Programs for programming}
-	For developing our own programs, we will use two kinds of software:\\
-	\bigskip
-	\textbf{Plain} text editors:
-	\begin{itemize}
-		\item vim (powerful, but needs getting used to)
-		\item gedit (easy to use, comes with Gnome)
-		\item Notepad(++) (for Windows users)
-	\end{itemize}
-	\bigskip
-	Compilers:
-	\begin{itemize}
-		\item \textbf{gcc}
-		\item clang
-	\end{itemize}
-\end{frame}
+% ################# Entwicklungsumgebungen #################
 
-\begin{frame}[fragile]{gcc for Unix-based operating systems}
-	Ubuntu / Debian:
-	\begin{lstlisting}[numbers=none]
-$ sudo apt-get install gcc
-\end{lstlisting}
-	\bigskip
-	Arch Linux:
-	\begin{lstlisting}[numbers=none]
-$ sudo pacman -S gcc
-\end{lstlisting}
-	\bigskip
-	Mac OS X:
-	\begin{lstlisting}[numbers=none]
-$ brew install gcc
-\end{lstlisting}
-	\bigskip
-	... and you're done ;-)
-\end{frame}
+\section{Entwicklungsumgebungen}
 
-\begin{frame}{gcc for Windows 10 (using \textit{bash})}
-	For convenience you should use the new Ubuntu-based Linux subsystem.\\
-	\bigskip
-	\begin{itemize}
-		\item In \textit{Settings}, got to \textit{Update \& Security} $>$ \textit{For Developers}
-		      and switch to \textit{Developer Mode}
-		\item In the \textit{Control panel}, go to \textit{Programs} $>$ \textit{Turn Windows Features On or Off}
-		      and enable the \textit{Windows Subsystem for Linux (Beta)}
-		\item Reboot as you're prompted
-		\item Search for ``bash'' and run the \textit{bash} command
-		\item Follow the installation instructions
-	\end{itemize}
-	\bigskip
-	You may now continue as if you were using Ubuntu ;-)
-\end{frame}
 
-\begin{frame}[fragile]{gcc for older versions of Windows (using \textbf{cygwin})}
-	We highly recommend using the \href{https://chocolatey.org/}{Chocolatey} package manager.\\
-	\begin{itemize}
-		\item Follow the link and the instructions on the website to install it
-	\end{itemize}
-	\bigskip
-	Install cygwin (launch the shell as an administrator!):
-	\begin{lstlisting}[numbers=none]
-$ choco install cygwin
-$ choco install cyg-get
-\end{lstlisting}
-	\bigskip
-	Install gcc and optionally vim: {\scriptsize(\href{https://github.com/chocolatey/chocolatey-coreteampackages/issues/176#issuecomment-212939458}{How to fix the "Cannot find file" error})}
-	\begin{lstlisting}[numbers=none]
-$ cyg-get gcc-core vim
-\end{lstlisting}
-	\bigskip
-	Now start \textit{cygwin} to get a command line similar to Unix.
-\end{frame}
-
-\section{Hello World!}
-\subsection{}
-\begin{frame}[fragile]{The first program}
-	\begin{itemize}
-		\item Create a new file named ``\textbf{main.c}''.
-		\item Open it in your text editor of choice.
-		\item Fill it as follows:
-	\end{itemize}
-	\begin{lstlisting}
-#include <stdio.h>
-
-int main(void) {
-	printf("Hello World!\n");
-	/* Print "Hello World!" on the
-	   command line */
-	return 0;
-}
-\end{lstlisting}
-\end{frame}
-\begin{frame}[fragile]{From source to binary}
-	\centering
-	Source code\\\ \\
-	$\Downarrow$\\\ \\
-	\begin{lstlisting}[numbers=none]
-$ gcc main.c
-\end{lstlisting}
-	(Preprocessing, compiling, assembling, linking)
-	\ \\\ \\
-	$\Downarrow$\\\ \\
-	Executable program\\\ \\
-	\begin{columns}[T]
-		\column{.35\textwidth}
-		Linux/Mac OS X (\textbf{a.out})
-		\begin{lstlisting}[numbers=none]
-$ ./a.out
-\end{lstlisting}
-		\column{.35\textwidth}
-		Windows (\textbf{a.exe})
-		\begin{lstlisting}[numbers=none]
-$ ./a.exe
-\end{lstlisting}
-	\end{columns}
-\end{frame}
-\section{Program structure}
-\subsection{}
-\begin{frame}[fragile]{A basic program}
-	\begin{columns}[T]
-		\column{.6\textwidth}
-		\begin{lstlisting}
-#include <stdio.h>
-
-int main(void) {
-
-	printf("Hello World!\n");
-	/* Print "Hello World!" on the
-	   command line */
-
-	return 0;
-}
-\end{lstlisting}
-		\column{.4\textwidth}
-
-		\ \\$\left. \begin{array}{c}\\\end{array}\right\rbrace $ Preprocessor statements
-			\ \\\ \\$\left. \begin{array}{c}\\\\\\\\\\\\\end{array}\right\rbrace $ Main function
-	\end{columns}
-\end{frame}
-\begin{frame}[fragile]{Preprocessor statements}
-	\begin{itemize}
-		\item Processed before compilation
-		\item Have their own language; start with a \textit{\#}
-	\end{itemize}
-	\begin{lstlisting}
-#include <stdio.h>
-\end{lstlisting}
-	\begin{itemize}
-		\item Includes the \textit{input/output header} from the \textbf{C standard library}
-		\item Needed to use \textit{printf()}
-	\end{itemize}\ \\ \ \\
-	Preprocessor statements have way more use cases,\\
-	but they form their own language which is very different from actual C.\\
-	\bigskip
-	In this course, we will use them for inclusions only.
-\end{frame}
-\begin{frame}[fragile]{The main function}
-	\begin{itemize}
-		\item Core function of every program
-		\item Exists \textbf{exactly once} in every program
-		\item Called on program start
-	\end{itemize}
-	\StartLineAt{3}
-	\begin{lstlisting}
-int main(void) {
-\end{lstlisting}
-	\begin{itemize}
-		\item As a function, \textit{main()} can take parameters and return a value
-		\item Get used to \textit{void} and \textit{int}. They will be explained later
-		\item '$\lbrace$' marks the start of the main function scope
-	\end{itemize}
-\end{frame}
-\begin{frame}[fragile]{The main function scope}
-	\begin{itemize}
-		\item Contains program statements
-		\item They are processed from top to bottom
-	\end{itemize} \ \\
-	\ \\
-	\StartLineAt{9}
-	\begin{lstlisting}
-	return 0;
-}
-\end{lstlisting}
-	\begin{itemize}
-		\item Last statement; ends main function (and thus the whole program)
-		\item \textit{0} tells the OS that everything went right
-		\item '$\rbrace$' marks the end of the main function scope
-	\end{itemize}
-\end{frame}
-\begin{frame}[fragile]{Statements}
-	\begin{itemize}
-		\item Instructions for the computer
-		\item End with a \textit{;} (semicolon)
-	\end{itemize}
-	\StartLineAt{5}
-	\begin{lstlisting}
-	printf("Hello World!\n");
-\end{lstlisting} \ \\ \ \\
-	\begin{itemize}
-		\item Here is the empty statement:
-	\end{itemize}
-	\begin{lstlisting}[numbers=none]
-	;
-\end{lstlisting}
-	\begin{itemize}
-		\item All statements are located in function blocks
-	\end{itemize}
-\end{frame}
-\begin{frame}[fragile]{Comments}
-	\begin{itemize}
-		\item Information for you and others who use your code
-		\item Cut out before compilation
-	\end{itemize}
-	Single-line comments:
-	\StartLineAt{6}
-	\begin{lstlisting}
-	// Prints "Hello World!" on the command line
-\end{lstlisting}
-	Block comments (multi-line):
-	\StartLineAt{6}
-	\begin{lstlisting}
-	/* Prints "Hello World!"
-	   on the command line */
-\end{lstlisting}
-	Better style of block comments:
-	\StartLineAt{6}
-	\begin{lstlisting}
-	/*
-	 * Prints "Hello World!"
-	 * on the command line
-	 */
-\end{lstlisting}
-\end{frame}
-\section{Style}
-\subsection{}
-\begin{frame}[fragile]{A few words on style}
-	\begin{itemize}
-		\item There can be multiple statements on one line
-		\item Indentation is not necessary at all
-		      \item<2-> \textbf{But}...
-	\end{itemize}
-	\ \\
-	\begin{uncoverenv}<2->
-		\begin{lstlisting}
-#include <stdio.h>
-int
-main	(        void ){printf("Hello World!\n");
-		// Prints
-/*"Hello World!"			*/
-		return 0;}
-\end{lstlisting}
-	\end{uncoverenv}
-\end{frame}
-\begin{frame}[fragile]{Write enjoyable code}
-	\begin{itemize}
-		\item Put each statement onto its own line
-		\item Indent every statement in the main function by one \textit{tab}\\
-		      or a fixed number of \textit{spaces}
-		\item Decide on a commenting style and stick to it\\
-		      (\textit{/* .. */} recommended)
-		\item Leave blank lines between different parts of the program
-		\item Use \textit{spaces} and \textit{newlines} consistently
-	\end{itemize}
-	\begin{lstlisting}[showspaces=true,showtabs=true]
-int main(void) {
-	printf("Hello World!");
-	/* Prints "Hello World!" */
-	return 0;
-}
-\end{lstlisting}
-\end{frame}
-
+\subsection{Playground}
+\subsection{Auf Eurem PC}
 
 % nothing to do from here on
 \end{document}
