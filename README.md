@@ -1,2 +1,3 @@
-# c-lessons
-C language lessons
+# Go-lessons
+
+Go language lessons @ TUD, 2021
