@@ -62,3 +62,8 @@ code {
   display: inline-block;
   vertical-align: text-bottom;
 }
+
+.mail-to::after {
+  content: "\2709";
+  color: black;
+}
